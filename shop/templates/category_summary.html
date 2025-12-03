@@ -15,7 +15,7 @@
             <div class="col-10">
                 <p align="justify">
                     {% for cat in category %}
-                        <a href="{% url 'category' cat.name %}"> <h3>{{ cat.name }}</h3> </a>
+                        <a href="{% url 'category' cat.name %}" class="btn btn-secondary"> <h3>{{ cat.name }}</h3> </a>
                     {% endfor %}
                 </p>
             </div>
