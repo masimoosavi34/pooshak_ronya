@@ -13,15 +13,36 @@
     <div class="row">
         <center>
             <div class="col-10">
+
+                <!-- نمایش پیام‌ها -->
+                {% if messages %}
+                  <div class="alert-messages">
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <!-- نمایش خطاهای فرم -->
+                {% if form.errors %}
+                  <div class="alert alert-danger">
+                    <ul>
+                      {% for field in form %}
+                        {% for error in field.errors %}
+                          <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                      {% endfor %}
+                      {% for error in form.non_field_errors %}
+                          <li>{{ error }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
                 <form method="POST" action="{% url 'signup' %}">
                     {% csrf_token %}
                         {{ form.as_p }}
                         <br><br>
                     <button type="submit" class="btn btn-secondary">ثبت نام</button>
-                  </form>
-            </div>
-        </center>
-    </div>
-</div>
-<br><br>
-{% endblock %}
