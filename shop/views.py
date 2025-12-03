@@ -124,7 +124,6 @@ def logout_user(request):
     return redirect("home")
 
 def signup_user(request):
-    form = SignUpForm()
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -133,13 +132,18 @@ def signup_user(request):
             password1 = form.cleaned_data['password1']
             user = authenticate(request, username=username, password=password1)
             login(request, user)
-            messages.success(request, ('اکانت شما ساخته شد'))
+            messages.success(request, 'اکانت شما ساخته شد')
             return redirect("update_info")
         else:
-            messages.success(request, ('مشکلی در ثبت نام شما وجود دارد'))
-            return redirect("signup")
+            # نمایش خطاهای فرم
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
+            return render(request, 'signup.html', {'form': form})
     else:
-        return render(request, 'signup.html', {'form':form})
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
 
 def update_user(request):
     if request.user.is_authenticated:
