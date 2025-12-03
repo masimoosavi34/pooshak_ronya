@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fa'
 
-TIME_ZONE = 'Tehran/Iran'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
