@@ -14,10 +14,10 @@
         <center>
             <div class="col-10">
 
-                <!-- فقط نمایش خطاها بالای صفحه -->
+                <!-- خطاها فقط بالای صفحه -->
                 {% if form.errors %}
-                  <div style="color:black; font-weight:bold; border:1px solid black; padding:10px;">
-                    <ul style="list-style:none; padding:0;">
+                  <div style="color:black; font-weight:bold; border:1px solid black; padding:10px; margin-bottom:20px;">
+                    <ul style="list-style:none; padding:0; margin:0;">
                       {% for field in form %}
                         {% for error in field.errors %}
                           <li>{{ error }}</li>
