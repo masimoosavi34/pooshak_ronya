@@ -28,11 +28,9 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">{{ item.name }}</h5>
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                </div>
                                 <!-- Product price-->
-                                <strike>{{ item.price | intcomma }} تومان </strike><br>
-                                {{ item.sale_price | intcomma }} تومان
+                                <strike>{{ item.price|intcomma }} تومان</strike><br>
+                                {{ item.sale_price|intcomma }} تومان
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -51,10 +49,8 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">{{ item.name }}</h5>
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                </div>
                                 <!-- Product price-->
-                                {{ item.price | intcomma }} تومان
+                                {{ item.price|intcomma }} تومان
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -65,8 +61,6 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                
-                </div>
             </div>
         </div>
     </section>
