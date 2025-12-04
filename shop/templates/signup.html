@@ -14,14 +14,14 @@
         <center>
             <div class="col-10">
 
-                <!-- خطاها فقط بالای صفحه -->
-                {% if form.errors %}
+               {% if form.errors %}
+                  <div class="alert alert-danger">
+                    <ul>
                       {% for field in form %}
+                        {% for error in field.errors %}
+                          <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
                       {% endfor %}
-                      {% for error in form.non_field_errors %}
-                          <li>{{ error }}</li>
-                      {% endfor %}
-                {% endif %}
 
                 <form method="POST" action="{% url 'signup' %}">
                     {% csrf_token %}
