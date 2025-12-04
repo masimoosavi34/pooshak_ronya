@@ -22,6 +22,9 @@
                           <li>{{ field.label }}: {{ error }}</li>
                         {% endfor %}
                       {% endfor %}
+                    </ul>
+                  </div>
+               {% endif %}
 
                 <form method="POST" action="{% url 'signup' %}">
                     {% csrf_token %}
